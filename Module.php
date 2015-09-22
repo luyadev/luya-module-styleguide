@@ -9,4 +9,8 @@ class Module extends \luya\base\Module
     public $controllerUseModuleViewPath = true;
 
     public $password = false;
+
+    public $assets = [
+        "styleguide\assets\ResourcesAsset"
+    ];
 }
