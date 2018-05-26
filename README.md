@@ -9,9 +9,9 @@
 [![Total Downloads](https://poser.pugx.org/luyadev/luya-module-styleguide/downloads)](https://packagist.org/packages/luyadev/luya-module-styleguide)
 [![Slack Support](https://img.shields.io/badge/Slack-luyadev-yellowgreen.svg)](https://slack.luya.io/)
 
-The basic idea behind the stylegiude is to give you the ability to ensure an advanced development cycle for functions and design of enhanced elements.
+The basic idea behind the styleguide is to give you the ability to ensure an advanced development cycle for functions and design of enhanced elements.
 
-The styleguide module renders all the available {{luya\web\Element}} with example content wich let you share all the elements with other designer to make and discuss changes based on elements instead on a finished web page. 
+The styleguide module renders all the available {{luya\web\Element}} with example content which let you share all the elements with other designer to make and discuss changes based on elements instead on a finished web page. 
 
 ## Installation
 
@@ -42,4 +42,4 @@ return [
 ```
 
 
-After successful configuration of the styleguide module you can access it trough the url: `yourdomain.com/styleguide`
+After successful configuration of the styleguide module, you can access it through the url: `yourdomain.com/styleguide`
