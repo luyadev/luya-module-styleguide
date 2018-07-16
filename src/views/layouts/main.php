@@ -1,5 +1,12 @@
+<?php
+
+use \luya\styleguide\assets\ResourcesAsset;
+ResourcesAsset::register($this);
+
+?>
+
 <?php $this->beginPage(); ?>
-<html>
+<html class="sg-html">
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="noindex, nofollow" />
@@ -8,7 +15,7 @@
         <title><?= Yii::$app->siteTitle; ?> Styleguide</title>
         <?php $this->head() ?>
     </head>
-    <body>
+    <body class="sg-body">
     <?php $this->beginBody() ?>
         <?= $content; ?>
     <?php $this->endBody() ?>

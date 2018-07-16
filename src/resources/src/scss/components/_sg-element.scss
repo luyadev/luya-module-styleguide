@@ -1,0 +1,21 @@
+.sg-element {
+    display: block;
+}
+
+.sg-element__title {
+
+}
+
+.sg-element__preview {
+    display: block;
+    border: 1px solid #F1F5F8;
+    border-radius: 5px 5px 0 0;
+    padding: 25px;
+}
+
+.sg-element__code-sample {
+    display: block;
+    padding: 10px 25px;
+    border-radius: 0 0 5px 5px;
+    background-color: #F1F5F8;
+}
