@@ -1,6 +1,7 @@
 <?php
 
 use \luya\styleguide\assets\ResourcesAsset;
+
 ResourcesAsset::register($this);
 
 ?>

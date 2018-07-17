@@ -1,79 +1,19 @@
 <?php
 
-$styleguide = [
-    'title' => 'Styleguide',
-    'showDomain' => true,
+use luya\helpers\Html;
+use luya\helpers\Url;
 
-    'groups' => [
-        [
-            'name' => 'Headings',
-            'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-            'elements' => [
-                [
-                    'name' => 'Heading 1',
-                    'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                    'element' => 'heading1',
-                    'values' => ['Heading 1'],
-                    'options' => []
-                ],
-                [
-                    'name' => 'Heading 2',
-                    'element' => 'heading2',
-                    'values' => ['Heading 2'],
-                    'options' => []
-                ],
-                [
-                    'name' => 'Heading 3',
-                    'element' => 'heading3',
-                    'values' => ['Heading 3'],
-                    'options' => []
-                ],
-                [
-                    'name' => 'Heading 4',
-                    'element' => 'heading4',
-                    'values' => ['Heading 4'],
-                    'options' => []
-                ]
-            ]
-        ],
-        [
-            'name' => 'Texts',
-            'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-            'elements' => [
-                [
-                    'name' => 'Paragraph',
-                    'element' => 'paragraph',
-                    'values' => ['Lorem ipsum dolor sit amet...'],
-                    'options' => []
-                ],
-                [
-                    'name' => 'Unordered List',
-                    'element' => 'ul',
-                    'values' => [['Item 1', 'Item 2', 'Item 3']],
-                    'options' => []
-                ],
-                [
-                    'name' => 'Ordered List',
-                    'element' => 'ol',
-                    'values' => [['Item 1', 'Item 2', 'Item 3']],
-                    'options' => []
-                ]
-            ]
-        ]
-    ]
-];
-
+/* @var array $styleguide */
+/* @var boolean $showDomain */
+/* @var string $title */
 ?>
-
-
 <div class="sg-container">
-
     <div class="sg-container__item sg-container__item--nav">
         <div class="sg-title">
-            <h1 class="sg-title__title"><?= $styleguide['title'] ?></h1>
-            <?php if($styleguide['showDomain'] === true): ?>
-                <a class="sg-title__domain" href="<?= Yii::$app->menu->home ?>" target="_blank"><?= Yii::$app->request->hostName ?></a>
-            <? endif; ?>
+            <h1 class="sg-title__title"><?= $title; ?></h1>
+            <?php if ($showDomain): ?>
+                <a class="sg-title__domain" href="<?= Url::base(true); ?>" target="_blank"><?= Yii::$app->request->hostName ?></a>
+            <?php endif; ?>
         </div>
         <nav class="sg-nav sg-js-fixed" data-fixed-class="sg-nav--fixed" data-fixed-offset="20">
             <?php foreach ($styleguide['groups'] as $group): ?>
@@ -87,35 +27,28 @@ $styleguide = [
                         <?php endforeach; ?>
                     </ul>
                 </div>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </nav>
     </div>
-
     <div class="sg-container__item sg-container__item--main">
-
         <?php foreach ($styleguide['groups'] as $group): ?>
             <div class="sg-group">
                 <h2 class="sg-group__title"><?= $group['name'] ?></h2>
                 <p class="sg-group__description"><?= $group['description'] ?></p>
-
                 <?php foreach ($group['elements'] as $element): ?>
                     <div class="sg-element sg-js-scrollspy-item" id="sg-<?= $element['element'] ?>">
                         <h3 class="sg-element__title"><?= $element['name'] ?></h3>
-                        <? if(isset($element['description'])): ?>
+                        <?php if(isset($element['description'])): ?>
                             <p class="sg-element__description"><?= $element['description'] ?></p>
-                        <? endif; ?>
+                        <?php endif; ?>
                         <div class="sg-element__preview">
-                            <?php $functionName = $element['element']; ?>
-                            <?= Yii::$app->element->$functionName(...$element['values']) ?>
+                            <?= Yii::$app->element->getElement($element['element'], $element['values']) ?>
                         </div>
                         <div class="sg-element__codesample">
                             <div class="sg-codesample sg-js-codesample">
                                 <div class="sg-codesample__code">
                                     <code class="sg-php php">
-                                        <?= \luya\helpers\Html::encode('<?= Yii::$app->elements->' . $element['element'] . '(\'' .
-                                            implode(array_map(function ($value) {
-                                                return gettype($value);
-                                            }, $element['values']), "', '") . '\') ?>'); ?>
+                                        <?= Html::encode('<?= Yii::$app->elements->' . $element['element'] . '(' . implode(", ", $element['params']) . ') ?>'); ?>
                                     </code>
                                 </div>
                                 <p class="sg-codesample__toggler sg-codesample__toggler--show">
@@ -129,27 +62,8 @@ $styleguide = [
                             </div>
                         </div>
                     </div>
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </div>
-        <? endforeach; ?>
-
+        <?php endforeach; ?>
     </div>
-
 </div>
-
-<!--
-
-
-<?php foreach ($containers as $item): ?>
-    <div style="padding:20px; text-align:center;">
-        <span style="font-size:18px;"><?= $item['name']; ?><i>(<?= implode(', ', $item['args']); ?>)</i></span>
-    </div>
-    <?= $item['tag']; ?>
-<?php endforeach; ?>
-
-<div style="padding:20px; text-align:center;">
-        <span style="font-size:18px;">Global Styles</span>
-</div>
-<?= $global; ?>
-
--->
