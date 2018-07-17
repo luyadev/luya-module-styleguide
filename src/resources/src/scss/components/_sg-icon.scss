@@ -1,0 +1,9 @@
+.sg-icon {
+    display: inline-block;
+    width: 24px;
+    vertical-align: middle;
+
+    & + span {
+        margin-left: 5px;
+    }
+}

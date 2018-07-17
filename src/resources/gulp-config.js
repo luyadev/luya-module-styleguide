@@ -84,7 +84,12 @@ module.exports = {
         },
         js: {
             "dist/js/script.js": [
-                "src/js/**/*.js"
+                "src/js/lodash.custom.js",
+                "src/js/highlight.pack.js",
+                "src/js/sg-codesample.js",
+                "src/js/sg-scroll-fixed.js",
+                "src/js/sg-scrollspy.js",
+                "src/js/main.js",
             ]
         },
         images: {

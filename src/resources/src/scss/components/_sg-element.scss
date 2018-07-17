@@ -1,9 +1,19 @@
 .sg-element {
     display: block;
+    margin: 0;
+
+    &:not(:last-of-type) {
+        margin-bottom: 50px;
+    }
 }
 
 .sg-element__title {
+    font-size: 20px;
+    margin: 0 0 15px;
+}
 
+.sg-element__description {
+    margin: -10px 0 25px;
 }
 
 .sg-element__preview {
@@ -11,11 +21,4 @@
     border: 1px solid #F1F5F8;
     border-radius: 5px 5px 0 0;
     padding: 25px;
-}
-
-.sg-element__code-sample {
-    display: block;
-    padding: 10px 25px;
-    border-radius: 0 0 5px 5px;
-    background-color: #F1F5F8;
 }

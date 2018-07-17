@@ -1,8 +1,17 @@
 .sg-title {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.sg-title__title {
     display: block;
     font-size: 18px;
     line-height: 18px;
     text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 30px;
+    margin: 0 0 5px;
+}
+
+.sg-title__domain {
+    font-size: 10px;
+    color: #3B568C;
 }

@@ -1,0 +1,44 @@
+.sg-codesample {
+    border: 1px solid #F1F5F8;
+    border-radius: 0 0 5px 5px;
+    background-color: #F1F5F8;
+    text-align: center;
+}
+
+.sg-codesample__toggler {
+    display: block;
+    margin: 0;
+    padding: 8px 25px;
+    cursor: pointer;
+    color: #B3B6B8;
+    transition: .25s ease-in-out color;
+
+    .sg-codesample--visible &--show {
+        display: none;
+    }
+    &--hide {
+        display: none;
+        border-top: 2px solid #fff;
+
+        .sg-codesample--visible & {
+            display: block;
+        }
+    }
+
+    &:hover {
+        color: #757778;
+    }
+}
+
+.sg-codesample__code {
+    display: none;
+    background-color: #f8f8f8;
+
+    code {
+        padding: 20px 25px;
+    }
+
+    .sg-codesample--visible & {
+        display: block;
+    }
+}
