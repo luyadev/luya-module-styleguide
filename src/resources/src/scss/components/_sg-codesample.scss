@@ -3,6 +3,7 @@
     border-radius: 0 0 5px 5px;
     background-color: #F1F5F8;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .sg-codesample__toggler {
@@ -12,6 +13,8 @@
     cursor: pointer;
     color: #B3B6B8;
     transition: .25s ease-in-out color;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 
     .sg-codesample--visible &--show {
         display: none;
@@ -33,9 +36,12 @@
 .sg-codesample__code {
     display: none;
     background-color: #f8f8f8;
+    box-sizing: border-box;
 
     code {
+        font: normal 12px Consolas, Monaco, monospace;
         padding: 20px 25px;
+        box-sizing: border-box;
     }
 
     .sg-codesample--visible & {

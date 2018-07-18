@@ -40,13 +40,19 @@ module.exports = {
             enabled: false
         },
         uglify: {
-            enabled: false
+            enabled: "prod",
+            config: {
+                compress: {
+                    drop_console: true
+                }
+            }
         },
         babeljs: {
-            enabled: true,
+            enabled: "prod",
             config: {
-                minified: true,
-                comments: false
+                minified: false,
+                comments: false,
+
             }
         }
     },
@@ -85,6 +91,7 @@ module.exports = {
         js: {
             "dist/js/script.js": [
                 "src/js/lodash.custom.js",
+                "src/js/smooth-scroll.js",
                 "src/js/highlight.pack.js",
                 "src/js/sg-codesample.js",
                 "src/js/sg-scroll-fixed.js",

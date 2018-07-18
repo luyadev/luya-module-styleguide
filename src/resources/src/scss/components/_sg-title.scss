@@ -1,17 +1,31 @@
 .sg-title {
     text-align: center;
     margin: 30px 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .sg-title__title {
     display: block;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 1;
     text-transform: uppercase;
     margin: 0 0 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 0;
+    color: #333;
 }
 
 .sg-title__domain {
     font-size: 10px;
-    color: #3B568C;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: underline;
+    color: #333;
 }

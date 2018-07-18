@@ -17,4 +17,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Init fixed element
     sgScrollFixed.init();
 
+    // Init smooth scroll
+    var scroll = new SmoothScroll('a[href^="#"]');
+    
 });

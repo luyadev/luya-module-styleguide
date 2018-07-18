@@ -2,6 +2,7 @@
     display: block;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 
     &--fixed {
         position: fixed;
@@ -11,6 +12,10 @@
 }
 
 .sg-nav__group {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
     &:not(:first-of-type) {
         margin-top: 25px;
     }
@@ -19,11 +24,14 @@
 .sg-nav__group-title {
     display: block;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.1;
     text-transform: uppercase;
     margin: 0;
     padding: 10px;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    color: #333;
 }
 
 .sg-nav__items {
@@ -36,15 +44,18 @@
 
 .sg-nav__link {
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.1;
     display: block;
     padding: 10px;
     border: 1px solid #eee;
     border-width: 1px 0 1px 0;
     position: relative;
-    color: #000;
     text-decoration: none;
     transition: .25s ease-in-out color;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    box-sizing: border-box;
+    color: #333;
 
     .sg-nav__item:not(:first-of-type) & {
         border-top-width: 0;
@@ -61,6 +72,7 @@
         opacity: 0;
         transition: .25s ease-in-out opacity, .25s ease-in-out width;
         z-index: -1;
+        box-sizing: border-box;
     }
 
     &:focus,
@@ -76,6 +88,7 @@
     &--active {
         color: #fff;
 
+        &:focus,
         &:hover {
             color: #fff;
         }

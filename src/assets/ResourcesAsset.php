@@ -22,6 +22,6 @@ class ResourcesAsset extends \luya\web\Asset
     ];
     
     public $depends = [
-        'yii\web\JqueryAsset',
+        // 'yii\web\JqueryAsset',
     ];
 }

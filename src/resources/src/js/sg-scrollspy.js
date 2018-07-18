@@ -41,7 +41,15 @@ var sgScrollspy = {
         var visibleItem = this.items.filter(function (item, i) {
             var currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-            if (item.top <= currentScroll && context.items[i + 1].top > currentScroll) {
+            if (i+1 === context.items.length) {
+                // Last item
+
+                if (item.top <= currentScroll) {
+                    return item;
+                }
+
+                return false;
+            } else if (item.top <= currentScroll && context.items[i + 1].top > currentScroll) {
                 return item;
             }
 
