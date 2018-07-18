@@ -14,14 +14,5 @@ class ResourcesAsset extends \luya\web\Asset
         'dist/css/main.css'
     ];
     
-    public $publishOptions = [
-        'only' => [
-            'css/*',
-            'js/*',
-        ]
-    ];
-    
-    public $depends = [
-        // 'yii\web\JqueryAsset',
-    ];
+    public $depends = [];
 }

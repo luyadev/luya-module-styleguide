@@ -16,13 +16,13 @@ use luya\helpers\Url;
             <?php endif; ?>
         </div>
         <nav class="sg-nav sg-js-fixed" data-fixed-class="sg-nav--fixed" data-fixed-offset="20">
-            <?php foreach ($styleguide['groups'] as $group): ?>
+            <?php foreach ($styleguide['groups'] as $groupKey => $group): ?>
                 <div class="sg-nav__group">
                     <p class="sg-nav__group-title"><?= $group['name'] ?></p>
                     <ul class="sg-nav__items">
-                        <?php foreach ($group['elements'] as $element): ?>
+                        <?php foreach ($group['elements'] as $elementKey => $element): ?>
                             <li class="sg-nav__item">
-                                <a class="sg-nav__link sg-js-scrollspy-nav-item" href="#sg-<?= $element['element'] ?>"><?= $element['name'] ?></a>
+                                <a class="sg-nav__link sg-js-scrollspy-nav-item" href="#sg-<?= $groupKey . $elementKey ?>"><?= $element['name'] ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -31,12 +31,12 @@ use luya\helpers\Url;
         </nav>
     </div>
     <div class="sg-container__item sg-container__item--main">
-        <?php foreach ($styleguide['groups'] as $group): ?>
+        <?php foreach ($styleguide['groups'] as $groupKey => $group): ?>
             <div class="sg-group">
                 <h2 class="sg-group__title"><?= $group['name'] ?></h2>
                 <p class="sg-group__description"><?= $group['description'] ?></p>
-                <?php foreach ($group['elements'] as $element): ?>
-                    <div class="sg-element sg-js-scrollspy-item" id="sg-<?= $element['element'] ?>">
+                <?php foreach ($group['elements'] as $elementKey => $element): ?>
+                    <div class="sg-element sg-js-scrollspy-item" id="sg-<?= $groupKey . $elementKey ?>">
                         <h3 class="sg-element__title"><?= $element['name'] ?></h3>
                         <?php if(isset($element['description'])): ?>
                             <p class="sg-element__description"><?= $element['description'] ?></p>
