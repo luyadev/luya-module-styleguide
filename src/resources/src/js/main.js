@@ -19,5 +19,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Init smooth scroll
     var scroll = new SmoothScroll('a[href^="#"]');
-    
+
 });

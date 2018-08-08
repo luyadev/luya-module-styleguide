@@ -3,12 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    &--fixed {
-        position: fixed;
-        width: 200px;
-        top: 20px;
-    }
+    overflow: auto;
+    max-height: calc(100vh - 95px);
 }
 
 .sg-nav__group {

@@ -8,14 +8,15 @@ use luya\helpers\Url;
 /* @var string $title */
 ?>
 <div class="sg-container">
-    <div class="sg-container__item sg-container__item--nav">
+    <input class="sg-container__toggle" type="checkbox" id="sg-container-toggle" name="sg-container-toggle" />
+    <div class="sg-container__item sg-container__item--nav js-nearby">
         <div class="sg-title">
             <h1 class="sg-title__title"><?= $title; ?></h1>
             <?php if ($showDomain): ?>
                 <a class="sg-title__domain" href="<?= Url::base(true); ?>" target="_blank"><?= Yii::$app->request->hostName ?></a>
             <?php endif; ?>
         </div>
-        <nav class="sg-nav sg-js-fixed" data-fixed-class="sg-nav--fixed" data-fixed-offset="20">
+        <nav class="sg-nav">
             <?php foreach ($styleguide['groups'] as $groupKey => $group): ?>
                 <div class="sg-nav__group">
                     <p class="sg-nav__group-title"><?= $group['name'] ?></p>
@@ -29,6 +30,9 @@ use luya\helpers\Url;
                 </div>
             <?php endforeach; ?>
         </nav>
+        <label class="sg-container__toggler" for="sg-container-toggle">
+            <span class="sg-container__toggler-arrow"></span>
+        </label>
     </div>
     <div class="sg-container__item sg-container__item--main">
         <?php foreach ($styleguide['groups'] as $groupKey => $group): ?>
@@ -38,7 +42,7 @@ use luya\helpers\Url;
                 <?php foreach ($group['elements'] as $elementKey => $element): ?>
                     <div class="sg-element sg-js-scrollspy-item" id="sg-<?= $groupKey . $elementKey ?>">
                         <h3 class="sg-element__title"><?= $element['name'] ?></h3>
-                        <?php if(isset($element['description'])): ?>
+                        <?php if (isset($element['description'])): ?>
                             <p class="sg-element__description"><?= $element['description'] ?></p>
                         <?php endif; ?>
                         <div class="sg-element__preview">
