@@ -11,7 +11,7 @@ var sgScrollspy = {
         this.checkItems();
         this.listeners();
     },
-    
+
     getElementPositions: function () {
         var context = this;
         var items = document.querySelectorAll(this.itemSelector);
@@ -64,27 +64,11 @@ var sgScrollspy = {
             var newActiveElement = document.querySelector(this.navItemSelector + '[href="#' + visibleItem.id + '"]');
 
             if (activeElement !== null) {
-                this.removeClass(activeElement, this.activeClass);
+                removeClass(activeElement, this.activeClass);
             }
-            this.addClass(newActiveElement, this.activeClass);
+            addClass(newActiveElement, this.activeClass);
         } else if (activeElement !== null) {
-            this.removeClass(activeElement, this.activeClass);
-        }
-    },
-
-    addClass: function (el, className) {
-        if (el.classList) {
-            el.classList.add(className);
-        } else {
-            el.className += ' ' + className;
-        }
-    },
-
-    removeClass: function (el, className) {
-        if (el.classList) {
-            el.classList.remove(className);
-        } else {
-            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            removeClass(activeElement, this.activeClass);
         }
     },
 

@@ -96,6 +96,7 @@ module.exports = {
                 "src/js/sg-codesample.js",
                 "src/js/sg-scroll-fixed.js",
                 "src/js/sg-scrollspy.js",
+                "src/js/sg-settings.js",
                 "src/js/main.js",
             ]
         },

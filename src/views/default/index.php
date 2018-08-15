@@ -7,8 +7,8 @@ use luya\helpers\Url;
 /* @var boolean $showDomain */
 /* @var string $title */
 ?>
+
 <div class="sg-container">
-    <input class="sg-container__toggle" type="checkbox" id="sg-container-toggle" name="sg-container-toggle" />
     <div class="sg-container__item sg-container__item--nav js-nearby">
         <div class="sg-title">
             <h1 class="sg-title__title"><?= $title; ?></h1>
@@ -30,9 +30,6 @@ use luya\helpers\Url;
                 </div>
             <?php endforeach; ?>
         </nav>
-        <label class="sg-container__toggler" for="sg-container-toggle">
-            <span class="sg-container__toggler-arrow"></span>
-        </label>
     </div>
     <div class="sg-container__item sg-container__item--main">
         <?php foreach ($styleguide['groups'] as $groupKey => $group): ?>

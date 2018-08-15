@@ -4,6 +4,10 @@
     background-color: #F1F5F8;
     text-align: center;
     box-sizing: border-box;
+
+    .sg-js-setting-no-horizontal-spacing & {
+        display: none;
+    }
 }
 
 .sg-codesample__toggler {

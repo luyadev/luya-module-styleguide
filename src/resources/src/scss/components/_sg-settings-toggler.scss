@@ -1,0 +1,32 @@
+.sg-settings-toggler {
+    background-color: #333;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    opacity: .4;
+
+    .sg-js-settings-open & {
+        opacity: 1;
+    }
+}
+
+.sg-settings-toggler__icon {
+    fill: #fff;
+
+    .sg-settings-toggler:hover & {
+        animation: rotate 4s linear 0s infinite forwards;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

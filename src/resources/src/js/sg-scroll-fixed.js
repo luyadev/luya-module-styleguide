@@ -12,7 +12,7 @@ var sgScrollFixed = {
         this.listeners();
 
     },
-    
+
     getElements: function() {
         var context = this;
         var elements = document.querySelectorAll(this.selector);
@@ -36,9 +36,9 @@ var sgScrollFixed = {
             var offset = parseInt(el.getAttribute('data-fixed-offset')) || 0;
 
             if(currentScroll >= (elementDistanceTop - offset)) {
-                context.addClass(el, fixedClass);
+                addClass(el, fixedClass);
             } else {
-                context.removeClass(el, fixedClass);
+                removeClass(el, fixedClass);
             }
         });
     },
@@ -50,22 +50,6 @@ var sgScrollFixed = {
             context.check();
         });
         window.addEventListener('resize', _.throttle(function() { context.getElements(); context.check(); }, 250));
-    },
-
-    addClass: function (el, className) {
-        if (el.classList) {
-            el.classList.add(className);
-        } else {
-            el.className += ' ' + className;
-        }
-    },
-
-    removeClass: function (el, className) {
-        if (el.classList) {
-            el.classList.remove(className);
-        } else {
-            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        }
     },
 
     getElementDistanceFromTop: function (el) {

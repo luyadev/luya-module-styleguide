@@ -30,30 +30,14 @@ var sgCodesample = {
         var context = this;
 
         if (hide === true) {
-            this.removeClass(el, this.activeClass);
+            removeClass(el, this.activeClass);
         } else {
-            this.addClass(el, this.activeClass);
+            addClass(el, this.activeClass);
         }
 
         setTimeout(function() {
             context.triggerCustomEvent(window, 'scrollspy.recheck')
         }, 250);
-    },
-
-    addClass: function(el, className) {
-        if (el.classList) {
-            el.classList.add(className);
-        } else {
-            el.className += ' ' + className;
-        }
-    },
-
-    removeClass: function(el, className) {
-        if (el.classList) {
-            el.classList.remove(className);
-        } else {
-            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        }
     },
 
     triggerCustomEvent: function(el, eventname) {

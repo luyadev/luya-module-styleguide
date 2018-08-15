@@ -18,6 +18,12 @@
     padding: 0;
     box-sizing: border-box;
     color: #333;
+
+    .sg-js-setting-no-horizontal-spacing & {
+        padding: 25px;
+        color: #fff;
+        background-color: #404040;
+    }
 }
 
 .sg-element__description {
@@ -29,6 +35,10 @@
     padding: 0;
     box-sizing: border-box;
     color: #333;
+
+    .sg-js-setting-no-horizontal-spacing & {
+        display: none;
+    }
 }
 
 .sg-element__preview {
@@ -37,4 +47,10 @@
     border-radius: 5px 5px 0 0;
     padding: 25px;
     box-sizing: border-box;
+
+    .sg-js-setting-no-horizontal-spacing & {
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+    }
 }
