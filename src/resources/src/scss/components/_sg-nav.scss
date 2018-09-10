@@ -36,7 +36,15 @@
     padding: 0;
 }
 
-.sg-nav__item {}
+.sg-nav__item {
+    margin: 0;
+    padding: 0;
+
+    &:before,
+    &:after {
+        display: none;
+    }
+}
 
 .sg-nav__link {
     font-size: 14px;
