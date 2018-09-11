@@ -1,0 +1,36 @@
+.sg-settings {
+    box-sizing: border-box;
+    color: #fff;
+    padding: 15px 25px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.sg-settings__entry {
+    display: block;
+    padding-left: 50px;
+    position: relative;
+
+    &:not(:first-child) {
+        margin-top: 15px;
+    }
+}
+
+.sg-settings__switch {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sg-settings__label {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    line-height: 1.3;
+    margin: 0;
+    padding: 7px 0;
+}
