@@ -18,7 +18,7 @@ class DefaultController extends \luya\web\Controller
 
     /**
      * Render Styleguide.
-     * 
+     *
      * @return \yii\web\Response|string
      */
     public function actionIndex()
@@ -37,18 +37,32 @@ class DefaultController extends \luya\web\Controller
             'styleguide' => $this->extractElementsFromComponent()
         ]);
     }
-    
-    protected function defineElement($element, $name = null, $description = null, array $values = [], array $options = [], array $params = [])
+
+    /**
+     * Login action if password is required.
+     *
+     * @return \yii\web\Response|string
+     */
+    public function actionLogin()
     {
-        return [
-            'name' => $name ?: $element,
-            'description' => $description,
-            'element' => $element,
-            'values' => $values,
-            'params' => $params,
-        ];
+        $password = Yii::$app->request->post('pass', false);
+
+        // check password
+        if ($password === $this->module->password || $this->hasAccess()) {
+            Yii::$app->session->set(self::STYLEGUIDE_SESSION_PWNAME, $password);
+            return $this->redirect(['index']);
+        } elseif ($password !== false) {
+            Yii::$app->session->setFlash('wrong.styleguide.password');
+        }
+
+        return $this->render('login');
     }
     
+    /**
+     * Extract the data from the element component
+     *
+     * @return array
+     */
     protected function extractElementsFromComponent()
     {
         $elements = [];
@@ -58,7 +72,6 @@ class DefaultController extends \luya\web\Controller
             $params = [];
             $writtenParams = [];
             foreach ($args as $k => $v) {
-                
                 $mock = Yii::$app->element->getMockedArgValue($name, $v->name);
                 if ($mock !== false) {
                     $params[] = $mock;
@@ -91,103 +104,29 @@ class DefaultController extends \luya\web\Controller
             ]
         ];
     }
-    
-    /*
-    public function getStyleguideArray()
-    {
-        return [
-            'groups' => [
-                [
-                    'name' => 'Headings',
-                    'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-                    'elements' => [
-                        [
-                            'name' => 'Heading 1',
-                            'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                            'element' => 'heading1',
-                            'values' => ['Heading 1'],
-                            'options' => []
-                        ],
-                        [
-                            'name' => 'Heading 1',
-                            'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
-                            'element' => 'heading1',
-                            'values' => ['Heading 1'],
-                            'options' => []
-                        ],
-                        [
-                            'name' => 'Heading 2',
-                            'element' => 'heading2',
-                            'values' => ['Heading 2'],
-                            'options' => []
-                        ],
-                        [
-                            'name' => 'Heading 3',
-                            'element' => 'heading3',
-                            'values' => ['Heading 3'],
-                            'options' => []
-                        ],
-                        [
-                            'name' => 'Heading 4',
-                            'element' => 'heading4',
-                            'values' => ['Heading 4'],
-                            'options' => []
-                        ]
-                    ]
-                ],
-                [
-                    'name' => 'Texts',
-                    'description' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-                    'elements' => [
-                        [
-                            'name' => 'Paragraph',
-                            'element' => 'paragraph',
-                            'values' => ['Lorem ipsum dolor sit amet...'],
-                            'options' => []
-                        ],
-                        [
-                            'name' => 'Unordered List',
-                            'element' => 'ul',
-                            'values' => [['Item 1', 'Item 2', 'Item 3']],
-                            'options' => []
-                        ],
-                        [
-                            'name' => 'Ordered List',
-                            'element' => 'ol',
-                            'values' => [['Item 1', 'Item 2', 'Item 3']],
-                            'options' => []
-                        ]
-                    ]
-                ]
-            ]
-        ];
-    }
-    */
 
     /**
-     * Login action if password is required.
-     * 
-     * @return \yii\web\Response|string
+     * Generate the array for a given element.
+     *
+     * @return array
      */
-    public function actionLogin()
+    protected function defineElement($element, $name = null, $description = null, array $values = [], array $options = [], array $params = [])
     {
-        $password = Yii::$app->request->post('pass', false);
-        if ($password === $this->module->password || $this->hasAccess()) {
-            Yii::$app->session->set(self::STYLEGUIDE_SESSION_PWNAME, $password);
-            return $this->redirect(['index']);
-        } elseif ($password !== false) {
-            Yii::$app->session->setFlash('wrong.styleguide.password');
-        }
-
-        return $this->render('login');
+        return [
+            'name' => $name ?: $element,
+            'description' => $description,
+            'element' => $element,
+            'values' => $values,
+            'params' => $params,
+        ];
     }
 
     /**
      * Whether current session contains password or not.
-     * 
+     *
      * @return boolean
      */
-    private function hasAccess()
+    protected function hasAccess()
     {
         return $this->module->password == Yii::$app->session->get(self::STYLEGUIDE_SESSION_PWNAME, false);
     }

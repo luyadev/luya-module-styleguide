@@ -43,11 +43,6 @@ final class Module extends \luya\base\Module implements CoreModuleInterface
     public $password = false;
     
     /**
-     * @var array Options to pass to the div which encloses the rendered element.
-     */
-    public $divOptions = ['style' => 'padding:10px; border:5px solid #F0F0F0; margin-bottom:20px', 'class' => 'container container--styleguide'];
-    
-    /**
      * @var array An array with asset bundles files:
      *
      * ```php
