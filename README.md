@@ -11,6 +11,8 @@
 
 The basic idea behind the styleguide is to give you the ability to ensure an advanced development cycle for functions and design of enhanced elements.
 
+![LUYA Styleguide](https://raw.githubusercontent.com/luyadev/luya-module-styleguide/master/styleguide.gif)
+
 The styleguide module renders all the available {{luya\web\Element}} with example content which let you share all the elements with other designer to make and discuss changes based on elements instead on a finished web page. 
 
 ## Installation
