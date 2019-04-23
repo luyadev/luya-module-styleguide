@@ -20,7 +20,7 @@ The styleguide module renders all the available {{luya\web\Element}} with exampl
 For the installation of modules Composer is required.
 
 ```sh
-composer require luyadev/luya-module-styleguide:~1.0.0
+composer require luyadev/luya-module-styleguide
 ```
 
 ### Configuration 
