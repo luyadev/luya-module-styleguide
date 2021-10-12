@@ -28,17 +28,14 @@ composer require luyadev/luya-module-styleguide
 Configure the module in your project config, the password is protecting this page by default:
 
 ```php
-return [
+'modules' => [
     // ...
-    'modules' => [
-        // ...
-        'styleguide' => [
-            'class' => 'luya\styleguide\Module',
-            'password' => 'styleguide-password',
-            'assetFiles' => [
-                'app\assets\ResourcesAsset',
-            ],
-        ]
+    'styleguide' => [
+        'class' => 'luya\styleguide\Module',
+        'password' => 'styleguide-password',
+        'assetFiles' => [
+            'app\assets\ResourcesAsset',
+        ],
     ]
 ]
 ```
